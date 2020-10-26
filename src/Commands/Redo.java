@@ -2,15 +2,15 @@ package Commands;
 
 import Receiver.Receiver;
 
-public class ShowLine implements ICommand {
+public class Redo implements ICommand {
     private Receiver receiver;
 
-    public ShowLine(Receiver receiver) {
+    public Redo(Receiver receiver) {
         this.receiver = receiver;
     }
 
     @Override
     public void execute() {
-        receiver.show();
+        receiver.redo();
     }
 }
