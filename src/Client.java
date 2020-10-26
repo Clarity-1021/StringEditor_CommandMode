@@ -1,29 +1,35 @@
-import Commands.ICommand;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
 
 public class Client {
-    private static Set<String> Commands = new HashSet<>();
-    static {
-        Commands.add("s");
-        Commands.add("A");
-        Commands.add("a");
-        Commands.add("D");
-        Commands.add("d");
-        Commands.add("l");
-        Commands.add("u");
-        Commands.add("m");
-    }
-    private List<ICommand> CommandList = new ArrayList<>();
-
     public static void main(String[] args) {
-
-        String cmd;
-        while (!(cmd = getCommandLine()).equals("Z")) {
-            System.out.println("您输入的字符串是:" + cmd);
+        Receiver receiver = new Receiver();//创建一个接收者
+        String cmdLine;
+        while (!(cmdLine = getCommandLine()).equals("Z")) {
+//            System.out.println("您输入的字符串是:" + cmd);
+            String[] strs = cmdLine.split(" ");
+            switch (strs[0]) {//创建命令对象
+                case "s"://显示当前编辑的字符串
+                    break;
+                case "A"://在尾部添加字符串（修改类命令）
+                    break;
+                case "a"://在头部添加字符串（修改类命令）
+                    break;
+                case "D"://从尾部删除指定数量的字符（修改类命令）
+                    break;
+                case "d"://从头部删除指定数量的字符（修改类命令）
+                    break;
+                case "l"://倒序列出最近执行的最多n个修改类命令的列表
+                    break;
+                case "u"://undo操作
+                    break;
+                case "r"://redo操作
+                    break;
+                case "m"://定义宏
+                    break;
+                default://执行宏
+            }
         }
     }
 
